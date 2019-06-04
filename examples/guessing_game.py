@@ -14,7 +14,7 @@ def guessing_game():
       print("Please enter an integer.")
       continue
 
-    print(f"You guessed: {guess}")
+    print("You guessed: {guess}")
 
     if guess == secret_number:
       print("You win!")
