@@ -6,5 +6,5 @@ class Player:
       self.name = name
       self.current_room = current_room 
     
-    def __direction_(self, direction):
-        if self.room != None 
+    # def __direction_(self, direction):
+    #     if self.room != None 
