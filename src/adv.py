@@ -37,7 +37,8 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
-player = Player("Windra", room["outside"])
+player = str(input("Enter Name (or (e)exit): \n"))
+player1 = Player(player, "outside")
 # print(f"{player.name} is in",room['player.current_room'])
 
 error_message = None
@@ -46,54 +47,54 @@ error_message = None
 #value of input to test IF statement
 
 # Write a loop that:
-#declaring to current room
+# declaring to current room
+#Using hasattr() You can check whether object contains attribute by using hasattr builtin method.
+
+def try_dir(dir, current_room):
+    attribute = dir+'_to'
+    player = "Windra"
+    
+    if hasattr(current_room, attribute):
+        return getattr(current_room, attribute)
+    else:
+        print(f'{player} you may not go this way')
+        return current_room
+
 while True:
-    current_room = player.current_room 
-    print(player.current_room)
+    current_room = player1.current_room 
+    print(player1.current_room)
     
     cmd = input("Choose the direction you want to go to, 'n' for North, 's' for South, 'e' for East, 'w' for West,'q' for Quit -> ")
     
     #test valid direction or not a valid direction: making sure is not null
     #redeclares valid room
     if cmd == 'n': 
-        if current_room.n_to is not None: 
-            player.current_room = current_room.n_to 
+        if current_room is not None: 
+            player1.current_room = current_room
             continue
         else:
             print("you can't go to this direction")
+            
+    if cmd == 's':
+        if current_room is not None:
+            player1.current_room = current_room
+        else:
+            
+            
+        try_dir(cmd, current_room)
     elif cmd == 's':
-        if current_room.s_to is not None:
-            player.current_room = current_room.s_to
-            continue
-        else:
-            print("you can't go to this direction")
-            continue
+        try_dir(cmd, current_room)
     elif cmd == 'e':
-        if current_room.e_to is not None:
-            player.current_room = current_room.e_to
-            continue
-        else:
-            print("you can't go to this direction")
-            continue
+        try_dir(cmd, current_room)
     elif cmd == 'w':
-        if current_room.w_to is not None:
-            player.current_room = current_room.w_to
-        else:
-            print("you can't go to this direction")
-            continue
+        try_dir(cmd, current_room)
     elif cmd == 'q':
         print("Good bye! Enjoy your freedom")
         break
     else:
         print("Invalid command. Use direction: n, s, e, w, q")
     
-            
-    
-            
-        
-        
-        
-    
+               
 # * Prints the current room name
 print("Player.current_room.name")
 
