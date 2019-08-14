@@ -2,9 +2,11 @@
 # description attributes.
 
 class Room:
-    def __init__(self, name, description):
+    def __init__(self, name, description): #constructor
         self.name = name
         self.description = description
-    def __str__(self):
+        
+    def __str__(self): #string : prints out the rooms name "Just a string", unique
         return f"{self.name}"   
-
+    
+   
